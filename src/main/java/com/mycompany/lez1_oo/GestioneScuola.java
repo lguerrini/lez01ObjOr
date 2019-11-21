@@ -5,6 +5,7 @@
  */
 package com.mycompany.lez1_oo;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +18,7 @@ public class GestioneScuola extends javax.swing.JFrame {
     //elenco corsi
     ArrayList<Corso> elencoCorsi;
     String nomeScuola;
-
+    int idxCorsoCurrent;
     /**
      * Creates new form GestioneScuola
      */
@@ -25,6 +26,10 @@ public class GestioneScuola extends javax.swing.JFrame {
         initComponents();
         elencoCorsi = new ArrayList<Corso>();
         nomeScuola = "Ferrucci Liceo Torino";
+        panAlunni.setVisible(false);
+        panCorsi.setVisible(true);
+        
+        
     }
 
     /**
@@ -36,7 +41,8 @@ public class GestioneScuola extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        panCorsi = new javax.swing.JPanel();
         lGestioneCorsi = new javax.swing.JLabel();
         bAddCorso = new javax.swing.JButton();
         tnomeCorso = new javax.swing.JTextField();
@@ -47,12 +53,26 @@ public class GestioneScuola extends javax.swing.JFrame {
         tnumOre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tpelencocorsi = new javax.swing.JTextPane();
+        panAlunni = new javax.swing.JPanel();
+        lGestioneCorsi1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tcognomealunno = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tnomealunno = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tpviselcorsi = new javax.swing.JTextPane();
+        jLabel6 = new javax.swing.JLabel();
+        tindexcorso = new javax.swing.JTextField();
+        lnomecorso = new javax.swing.JLabel();
+        baddAlunnoCorso = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tpElencoAlunniCorso = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestione scuola");
         setBackground(new java.awt.Color(189, 255, 189));
 
-        jPanel1.setBackground(new java.awt.Color(193, 243, 187));
+        panCorsi.setBackground(new java.awt.Color(193, 243, 187));
 
         lGestioneCorsi.setText("Gestione Corsi");
 
@@ -80,35 +100,35 @@ public class GestioneScuola extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(tpelencocorsi);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panCorsiLayout = new javax.swing.GroupLayout(panCorsi);
+        panCorsi.setLayout(panCorsiLayout);
+        panCorsiLayout.setHorizontalGroup(
+            panCorsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCorsiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panCorsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panCorsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lGestioneCorsi)
                         .addComponent(bAddCorso)
                         .addComponent(tnomeCorso)
                         .addComponent(jLabel1)
                         .addComponent(jLabel2)
                         .addComponent(tedizione, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(panCorsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(tnumOre, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panCorsiLayout.setVerticalGroup(
+            panCorsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCorsiLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lGestioneCorsi)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(panCorsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panCorsiLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tnomeCorso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -122,10 +142,105 @@ public class GestioneScuola extends javax.swing.JFrame {
                         .addComponent(tnumOre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bAddCorso)
-                        .addGap(0, 64, Short.MAX_VALUE))
+                        .addGap(0, 97, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
+
+        jTabbedPane1.addTab("Gestione Corsi", panCorsi);
+
+        panAlunni.setBackground(new java.awt.Color(255, 239, 115));
+
+        lGestioneCorsi1.setText("Gestione Alunni");
+
+        jLabel4.setText("inserire cognome:");
+
+        jLabel5.setText("inserire nome:");
+
+        jScrollPane2.setViewportView(tpviselcorsi);
+
+        jLabel6.setText("n° corso");
+
+        tindexcorso.setText("0");
+        tindexcorso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tindexcorsoActionPerformed(evt);
+            }
+        });
+        tindexcorso.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tindexcorsoPropertyChange(evt);
+            }
+        });
+
+        lnomecorso.setText("nessun corso");
+
+        baddAlunnoCorso.setText("Add Alunno");
+        baddAlunnoCorso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                baddAlunnoCorsoActionPerformed(evt);
+            }
+        });
+
+        jScrollPane3.setViewportView(tpElencoAlunniCorso);
+
+        javax.swing.GroupLayout panAlunniLayout = new javax.swing.GroupLayout(panAlunni);
+        panAlunni.setLayout(panAlunniLayout);
+        panAlunniLayout.setHorizontalGroup(
+            panAlunniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panAlunniLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panAlunniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panAlunniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lGestioneCorsi1)
+                        .addComponent(jLabel4)
+                        .addComponent(tcognomealunno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addComponent(jScrollPane2)
+                        .addComponent(tnomealunno))
+                    .addGroup(panAlunniLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panAlunniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(baddAlunnoCorso)
+                            .addGroup(panAlunniLayout.createSequentialGroup()
+                                .addComponent(tindexcorso, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lnomecorso)))))
+                .addGap(66, 66, 66)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        panAlunniLayout.setVerticalGroup(
+            panAlunniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panAlunniLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lGestioneCorsi1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panAlunniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panAlunniLayout.createSequentialGroup()
+                        .addComponent(tcognomealunno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tnomealunno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panAlunniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(tindexcorso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lnomecorso))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(baddAlunnoCorso))
+                    .addGroup(panAlunniLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 22, Short.MAX_VALUE))))
+        );
+
+        jTabbedPane1.addTab("Gestione Alunni", panAlunni);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,14 +248,14 @@ public class GestioneScuola extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -170,12 +285,61 @@ public class GestioneScuola extends javax.swing.JFrame {
         //aggiungo il corso all'elenco
         elencoCorsi.add(newcorso);
         //aggiorno il tabellone tpelencocorsi con la nuova versione
-        tpelencocorsi.setText(refreshElencoCorsi());
+        String el=refreshElencoCorsi();
+        tpelencocorsi.setText(el);
+        tpviselcorsi.setText(el);
         tnomeCorso.setText("");
         tedizione.setText("");
         tnumOre.setText("0");
         
     }//GEN-LAST:event_bAddCorsoActionPerformed
+
+    private void tindexcorsoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tindexcorsoPropertyChange
+        
+        
+        
+        
+    }//GEN-LAST:event_tindexcorsoPropertyChange
+
+    private void tindexcorsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tindexcorsoActionPerformed
+       
+        // TODO add your handling code here:
+        try {
+        String strindex=tindexcorso.getText();
+        
+        int index =Integer.parseInt(strindex)-1;
+        Corso c =elencoCorsi.get(index);
+        String nc=c.getNomeCorso();
+        lnomecorso.setText(nc);
+        idxCorsoCurrent=index;
+        String tabellone =elencoCorsi.get(idxCorsoCurrent).getRowAlunniCorso();
+        tpElencoAlunniCorso.setText(tabellone);
+        
+        
+        }
+        catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_tindexcorsoActionPerformed
+
+    private void baddAlunnoCorsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baddAlunnoCorsoActionPerformed
+        // TODO add your handling code here:
+        String na =tnomealunno.getText();
+        String ca =tcognomealunno.getText();
+        Alunno al = new Alunno(ca, na);
+        elencoCorsi.get(idxCorsoCurrent).getRegistro().add(al);
+        tnomealunno.setText("");
+        tcognomealunno.setText("");
+        String tabellone =elencoCorsi.get(idxCorsoCurrent).getRowAlunniCorso();
+        tpElencoAlunniCorso.setText(tabellone);
+                
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_baddAlunnoCorsoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,15 +390,30 @@ public class GestioneScuola extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAddCorso;
+    private javax.swing.JButton baddAlunnoCorso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lGestioneCorsi;
+    private javax.swing.JLabel lGestioneCorsi1;
+    private javax.swing.JLabel lnomecorso;
+    private javax.swing.JPanel panAlunni;
+    private javax.swing.JPanel panCorsi;
+    private javax.swing.JTextField tcognomealunno;
     private javax.swing.JTextField tedizione;
+    private javax.swing.JTextField tindexcorso;
     private javax.swing.JTextField tnomeCorso;
+    private javax.swing.JTextField tnomealunno;
     private javax.swing.JTextField tnumOre;
+    private javax.swing.JTextPane tpElencoAlunniCorso;
     private javax.swing.JTextPane tpelencocorsi;
+    private javax.swing.JTextPane tpviselcorsi;
     // End of variables declaration//GEN-END:variables
 }
